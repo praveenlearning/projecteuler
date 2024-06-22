@@ -13,22 +13,29 @@ from util import benchmark
 
 @benchmark
 def optimized(n: int) -> int:
+    """
+    :param n: number
+    :return: the largest prime factor
+
+    divide number by each prime number to get the largest prime factor
+    """
+    n_ = n
     factor = 2
-    if n % factor == 0:
+    if n_ % factor == 0:
         max_factor = factor
-        while n % factor == 0:
-            n = n // factor
+        while n_ % factor == 0:
+            n_ = n_ // factor
     else:
         max_factor = 1
-        factor += 1
+    factor += 1
 
-    while n > 1 and factor <= sqrt(n):
-        if n % factor == 0:
+    while n_ > 1 and factor <= sqrt(n):
+        if n_ % factor == 0:
             max_factor = factor
-            while n % factor == 0:
-                n = n // factor
+            while n_ % factor == 0:
+                n_ = n_ // factor
         factor += 2
-    return max_factor if n == 1 else n
+    return max_factor if n_ == 1 else n_
 
 
 print(optimized(600851475143))
