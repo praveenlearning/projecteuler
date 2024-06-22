@@ -10,11 +10,15 @@ even-valued terms.
 
 
 F(n) = F(n+1) - F(n-1)
+F(n-1) = F(n) - F(n - 2)
+F(n-2) = F(n-1) - F(n - 3)
+...
+...
 F(4) = F(5) - F(3)
 F(3) = F(4) - F(2)
 F(2) = F(3) - F(1)
 
-F(2) + ... + F(n) = F(n+1) + F(n-1) - F(2) - F(1)
+F(2) + ... + F(n) = F(n+1) + F(n) - F(2) - F(1)
 F(1) + ... + F(n) = F(n+2) - F(2)
 """
 from util import benchmark
@@ -41,12 +45,12 @@ def optimized(n: int):
     every 3rd term is even
 
     F(n)    = F(n-1) + F(n-2)
-            = F(n-2)+F(n-3)+F(n-2)=2 F(n-2) + F(n-3)
-            = 2(F(n-3)+F(n-4))+F(n-3))=3 F(n-3) + 2 F(n-4)
+            = F(n-2) + F(n-3) + F(n-2) = 2 * F(n-2) + F(n-3)
+            = 2 * (F(n-3) + F(n-4)) + F(n-3) = 3 * F(n-3) + 2 F(n-4)
             = 3 F(n-3) + F(n-4) + F(n-5) + F(n-6)
             = 4 F(n-3) + F(n-6)
 
-    E(n)    = 4 E(n-1) + E(n-2)
+    E(n)    = 4 E(n-1) + E(n-2) ----- Even Fibonacci Formula
     """
     e0 = 0
     e1 = 2
