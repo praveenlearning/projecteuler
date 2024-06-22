@@ -30,6 +30,12 @@ def method_2(n: int) -> int:
 
 @benchmark
 def optimized(n: int) -> int:
+    """
+    :param n: number
+    :return: sum of all numbers within the provided number divisible by divisors
+
+    uses arithmatic progression formula to calculate the sum
+    """
     divisors = [3, 5]
     sum_n = 0
 
@@ -42,7 +48,7 @@ def optimized(n: int) -> int:
     return sum_n
 
 
-number = 99999
+number = 999
 
 print(normal(number))
 print(method_2(number))
