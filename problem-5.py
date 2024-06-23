@@ -11,7 +11,7 @@ import math
 from functools import reduce
 from math import sqrt
 
-from util import benchmark
+from util import benchmark, is_prime
 
 
 def prime_factors(n: int):
@@ -36,17 +36,6 @@ def prime_factors(n: int):
     if n != 1:
         factors[n] = 1
     return factors
-
-
-def is_prime(n: int) -> bool:
-    if n == 1:
-        return False
-    k = 2
-    while k * k <= n:
-        if n % k == 0:
-            return False
-        k += 1
-    return True
 
 
 @benchmark
