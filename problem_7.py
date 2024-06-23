@@ -28,7 +28,7 @@ def normal(nth: int) -> int:
 
 
 @benchmark
-def _approach_2(nth: int) -> int:
+def approach_2(nth: int) -> int:
     nth_prime = 0
     if nth == 2:
         nth_prime = 2
@@ -44,4 +44,4 @@ def _approach_2(nth: int) -> int:
 
 
 print(normal(10001))
-print(_approach_2(10001))
+print(approach_2(10001))

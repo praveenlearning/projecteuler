@@ -23,7 +23,7 @@ def normal(n: int) -> int:
 
 
 @benchmark
-def method_2(n: int) -> int:
+def approach_2(n: int) -> int:
     filtered = filter(lambda x: x % 3 == 0 or x % 5 == 0, range(n + 1))
     return sum(filtered)
 
@@ -51,5 +51,5 @@ def optimized(n: int) -> int:
 number = 999
 
 print(normal(number))
-print(method_2(number))
+print(approach_2(number))
 print(optimized(number))
