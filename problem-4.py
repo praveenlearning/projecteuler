@@ -10,29 +10,28 @@ from util import benchmark
 
 
 @benchmark
-def normal() -> int:
+def normal(digits: int = 3) -> int:
     palindrome = 1
     count = 0
-    i = 999
-    while i >= 100:
+    i = (10 ** digits) - 1
+    while i >= 10 ** (digits - 1):
         j = i
-        while j >= 100:
+        while j >= 10 ** (digits - 1):
             count += 1
             prod = i * j
             if prod > palindrome and str(prod) == str(prod)[-1::-1]:
                 palindrome = prod
             j -= 1
         i -= 1
-    print(count)
     return palindrome
 
 
 @benchmark
-def optimized() -> int:
-    a = 999
+def optimized(digits: int = 3) -> int:
+    a = (10 ** digits) - 1
     count = 0
     palindrome = 1
-    while a >= 100:
+    while a >= 10 ** (digits - 1):
         rem = a % 11
         if rem == 0:
             b = a
@@ -40,7 +39,7 @@ def optimized() -> int:
         else:
             b = a - rem
             d = 11
-        while b >= 100:
+        while b >= 10 ** (digits - 1):
             count += 1
             prod = a * b
             if prod > palindrome and str(prod) == str(prod)[-1::-1]:
